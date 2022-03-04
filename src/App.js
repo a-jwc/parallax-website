@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { ParallaxContainer } from "./components/ParallaxContainer";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div
+			className="App"
+			style={{
+				display: "flex",
+				flexDirection: "row",
+			}}
+		>
+			<div
+				style={{
+					maxWidth: "15vw",
+					width: "100%",
+					backgroundColor: "#363645",
+					height: "100vh",
+					color: "white",
+				}}
+			>
+				Something here
+			</div>
+			<div style={{ height: "80vh" }}>
+				<ParallaxContainer></ParallaxContainer>
+			</div>
+		</div>
+	);
 }
 
 export default App;
