@@ -1,0 +1,21 @@
+.form {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
+
+.formBox {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 100%;
+}
+
+.formLabel {
+  margin: 1rem;
+}
+
+.textInput {
+  padding: 0.5rem 1rem;
+}
