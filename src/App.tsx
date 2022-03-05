@@ -1,6 +1,6 @@
-import logo from "./logo.svg";
-import "./App.css";
+import "./App.scss";
 import { ParallaxContainer } from "./components/ParallaxContainer";
+import { Sidebar } from "./components/Sidebar";
 
 function App() {
 	return (
@@ -11,17 +11,7 @@ function App() {
 				flexDirection: "row",
 			}}
 		>
-			<div
-				style={{
-					maxWidth: "15vw",
-					width: "100%",
-					backgroundColor: "#363645",
-					height: "100vh",
-					color: "white",
-				}}
-			>
-				Something here
-			</div>
+      <Sidebar />
 			<div style={{ height: "80vh" }}>
 				<ParallaxContainer></ParallaxContainer>
 			</div>
