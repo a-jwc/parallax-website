@@ -1,0 +1,16 @@
+@use 'base';
+
+.logo {
+  margin: 1rem;
+  font-size: xx-large;
+}
+
+.submitButton {
+  margin: 2rem auto;
+  background-color: base.$teal;
+  border: none;
+  padding: 1rem 1rem;
+  border-radius: 2rem;
+  width: 7rem;
+  display: inline-block;
+}
