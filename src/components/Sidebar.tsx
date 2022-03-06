@@ -30,7 +30,7 @@ export const Sidebar = () => {
 	const hasToppings = useSelector(selectHasToppings);
 
 	const toppingsNodes = () => {
-		return toppings.map((topping) => <div>{topping}</div>);
+		return toppings.map((topping) => <div key={topping}>{topping}</div>);
 	};
 
 	const ColoredLine = () => <hr className="coloredLine" />;
