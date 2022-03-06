@@ -12,7 +12,8 @@ import {
 	selectHasPhoneNumber,
 	updateHasPhoneNumber,
 } from "../features/order/orderSlice";
-import "./styles.scss"
+import "./styles.scss";
+import "./form.scss";
 
 interface Parallax {
 	parallax: React.MutableRefObject<IParallax>;
@@ -46,7 +47,7 @@ export const PersonalForm = ({ parallax }: Parallax) => {
 					value={state.name}
 					className="textInput"
 					onChange={handleChange}
-          required
+					required
 				/>
 				<label className="formLabel">Phone Number:</label>
 				<input
@@ -55,14 +56,18 @@ export const PersonalForm = ({ parallax }: Parallax) => {
 					value={state.phoneNumber}
 					className="textInput"
 					onChange={handleChange}
-          required
+					required
 				/>
 				<input
 					type="submit"
 					name="submit"
-          className="submitButton"
+					className="personalSubmitButton"
 					onClick={(event) => {
 						event.preventDefault();
+						if (!state.name || !state.phoneNumber) {
+							alert("Please enter name and phone number 💙");
+              return
+						}
 						parallax.current.scrollTo(2);
 						dispatch(updateName(state.name));
 						dispatch(updatePhoneNumber(state.phoneNumber));
