@@ -19,7 +19,6 @@ const toppings = [
 	"Mushrooms",
 	"Spinach",
 	"Olives",
-	"None",
 ];
 
 const sizes: Sizes[] = [
@@ -44,20 +43,24 @@ export const OrderForm = () => {
 		setState({ ...state, [e.target.name]: value });
 	};
 
-	const handleToppingChange = (e: React.ChangeEvent<HTMLInputElement>, position: number) => {
+	const handleToppingChange = (
+		e: React.ChangeEvent<HTMLInputElement>,
+		position: number
+	) => {
 		const value = e.target.value;
-    if (!toppingsList.includes(value)) {
-      console.log("in update");
-      const tempList = [...toppingsList, value]
-      setToppingsList(tempList)
-    } else {
-      for (let i of toppingsList) {
-        if (i === value) {
-          toppingsList.splice(position, 1);
-        }
-      }
-    }
-
+		if (!toppingsList.includes(value)) {
+			console.log("in update");
+			const tempList = [...toppingsList, value];
+			setToppingsList(tempList);
+		} else {
+			for (let i of toppingsList) {
+				if (i === value) {
+					const tempList = [...toppingsList];
+					tempList.splice(toppingsList.indexOf(i), 1);
+					setToppingsList(tempList);
+				}
+			}
+		}
 	};
 
 	useEffect(() => {
