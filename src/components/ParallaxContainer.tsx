@@ -2,36 +2,50 @@ import { IParallax, Parallax, ParallaxLayer } from "@react-spring/parallax";
 import { useRef } from "react";
 import { BubbleParallaxLayer } from "./BubbleParallaxLayer";
 import { HeroContent } from "./HeroContent";
-import "./ParallaxContainer.scss";
-import { useSelector, useDispatch } from 'react-redux';
-import { updateName, updatePhoneNumber, updateOrder } from "../features/order/orderSlice";
+import { useSelector, useDispatch } from "react-redux";
+import {
+	updateName,
+	updatePhoneNumber,
+	updateOrder,
+} from "../features/order/orderSlice";
 import { PersonalForm } from "./PersonalForm";
+import { OrderForm } from "./OrderForm";
 
 export const ParallaxContainer = () => {
 	const parallax = useRef<IParallax>(null!);
 	return (
 		<Parallax
 			ref={parallax}
-			pages={4}
+			pages={3}
 			style={{ maxWidth: "85vw", width: "100%" }}
 		>
 			<ParallaxLayer
 				offset={0}
-				speed={2.5}
+				speed={0}
 				style={{
 					display: "flex",
 					justifyContent: "center",
 					alignItems: "center",
-					backgroundColor: "pink",
+					backgroundColor: "#eee8e2",
 				}}
 				onClick={() => parallax.current.scrollTo(1)}
 			>
 				<HeroContent />
 			</ParallaxLayer>
 
+
+			<ParallaxLayer
+				offset={1}
+				speed={0}
+				className="nameForm"
+				style={{ backgroundColor: "#eee8e2" }}
+			>
+				<PersonalForm parallax={parallax} />
+			</ParallaxLayer>
+
 			<BubbleParallaxLayer
 				offset={0}
-				speed={2}
+				speed={-1.2}
 				emoji={"🍕"}
 				width={"6rem"}
 				height={"6rem"}
@@ -41,7 +55,7 @@ export const ParallaxContainer = () => {
 
 			<BubbleParallaxLayer
 				offset={0}
-				speed={2}
+				speed={-1.2}
 				emoji={"🍕"}
 				width={"6rem"}
 				height={"6rem"}
@@ -50,31 +64,17 @@ export const ParallaxContainer = () => {
 			/>
 
 			<ParallaxLayer
-				offset={1}
-				speed={2}
-				className="nameForm"
-				style={{ backgroundColor: "pink" }}
-			>
-        <PersonalForm parallax={parallax} />
-			</ParallaxLayer>
-
-			<ParallaxLayer
 				offset={2}
-				speed={2}
-				style={{ backgroundColor: "#ff6d6d" }}
-			/>
-
-			<ParallaxLayer
-				offset={2}
-				speed={0.5}
+				speed={0}
 				style={{
 					display: "flex",
 					justifyContent: "center",
 					alignItems: "center",
 					color: "white",
+          backgroundColor: "#fe6d6d"
 				}}
 			>
-				<p>Scroll up</p>
+				<OrderForm />
 			</ParallaxLayer>
 		</Parallax>
 	);
