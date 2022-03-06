@@ -1,16 +1,19 @@
-@use 'base';
+@use "base";
 
 .logo {
-  margin: 1rem;
-  font-size: xx-large;
+	margin: 1rem;
+	font-size: xx-large;
 }
 
-.submitButton {
-  margin: 2rem auto;
-  background-color: base.$teal;
-  border: none;
-  padding: 1rem 1rem;
-  border-radius: 2rem;
-  width: 7rem;
-  display: inline-block;
+.heroContent {
+	display: "flex";
+	flex-direction: "column";
+	background-color: "#ca6d6d";
+	padding: "2rem";
+	border-radius: "2rem";
+	color: "white";
+}
+
+.bubble {
+  background-color: base.$paleRed;
 }

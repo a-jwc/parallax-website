@@ -1,4 +1,5 @@
 import { ParallaxLayer } from "@react-spring/parallax";
+import "./styles.scss";
 
 interface Props {
 	offset: number;
@@ -27,7 +28,6 @@ export const BubbleParallaxLayer = ({
 			speed={speed}
 			style={{
 				display: "flex",
-				backgroundColor: "#aff5fe",
 				width: `${width}` || "6rem",
 				height: `${height}` || "6rem",
 				borderRadius: "50%",
@@ -36,6 +36,7 @@ export const BubbleParallaxLayer = ({
 				marginTop: `${marginTop}`,
 				marginRight: `${marginRight}`,
 			}}
+			className="bubble"
 		>
 			<p
 				style={{
