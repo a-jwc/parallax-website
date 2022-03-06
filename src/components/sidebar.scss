@@ -1,0 +1,22 @@
+.sidebarSection {
+  border: 0.15rem solid darkgrey ;
+  margin: 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+	align-items: flex-start;
+
+  h1 {
+    align-self: center;
+  }
+}
+
+.toppings {
+  display: flex;
+  flex-direction: column;
+	align-items: flex-start;
+}
+
+.coloredLine {
+  width: 100%;
+}
