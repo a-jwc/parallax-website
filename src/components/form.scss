@@ -1,0 +1,102 @@
+@use "base";
+
+.form {
+	margin-top: 1rem;
+	display: flex;
+	flex-direction: column;
+	width: 25%;
+}
+
+.formBox {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	height: 100%;
+}
+
+.formLabel {
+	margin: 1rem;
+}
+
+.textInput {
+	padding: 0.5rem 1rem;
+	border-radius: 0.5rem;
+	border: none;
+}
+
+%submitButton {
+	margin: 2rem auto;
+	border: none;
+	padding: 1rem 1rem;
+	border-radius: 2rem;
+	width: 7rem;
+	height: 3rem;
+	display: inline-block;
+	font-size: medium;
+	font-weight: bold;
+
+	&:hover {
+		background-color: base.$darkPaleRed;
+	}
+}
+
+.personalSubmitButton {
+	@extend %submitButton;
+	background-color: base.$paleRed;
+	color: white;
+}
+
+.orderSubmitButton {
+	@extend %submitButton;
+	grid-column: 3 / 4;
+	grid-row: 2 / 3;
+	background-color: white;
+	color: base.$paleRed;
+
+	&:hover {
+		color: white;
+	}
+}
+
+.orderForm {
+	display: grid;
+	grid-template-rows: repeat(2, 20rem);
+	grid-template-columns: repeat(3, 20rem);
+	gap: 1rem;
+
+	@media screen and (max-width: 360px) {
+		display: flex;
+		flex-direction: column;
+	}
+
+	@media screen and (max-width: 1200px) {
+		display: grid;
+		grid-template-rows: repeat(3, 20rem);
+		grid-template-columns: repeat(2, 20rem);
+	}
+}
+
+%orderFormComponent {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	border: 0.15rem solid white;
+	padding: 1rem 2rem;
+}
+
+.sizeForm {
+	@extend %orderFormComponent;
+	// grid-column: 1 / 2;
+	// grid-row: 1 / 2;
+
+	@media screen and (max-width: 1200px) {
+	}
+}
+
+.toppingsForm {
+	@extend %orderFormComponent;
+}
+
+.addOnsForm {
+	@extend %orderFormComponent;
+}
