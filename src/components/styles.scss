@@ -17,3 +17,14 @@
 .bubble {
   background-color: base.$paleRed;
 }
+
+.parallaxLayer {
+  margin-left: 8%;
+}
+
+.logo {
+
+  &:hover {
+    cursor: pointer;
+  }
+}

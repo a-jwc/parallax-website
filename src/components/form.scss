@@ -29,7 +29,8 @@
 	border: none;
 	padding: 1rem 1rem;
 	border-radius: 2rem;
-	width: 7rem;
+  min-width: 7rem;
+	width: fit-content;
 	height: 3rem;
 	display: inline-block;
 	font-size: medium;
@@ -48,8 +49,6 @@
 
 .orderSubmitButton {
 	@extend %submitButton;
-	grid-column: 3 / 4;
-	grid-row: 2 / 3;
 	background-color: white;
 	color: base.$paleRed;
 
@@ -99,4 +98,12 @@
 
 .addOnsForm {
 	@extend %orderFormComponent;
+}
+
+.orderButtons {
+	grid-column: 3 / 4;
+	grid-row: 2 / 3;
+
+  display: flex;
+  flex-direction: column;
 }
