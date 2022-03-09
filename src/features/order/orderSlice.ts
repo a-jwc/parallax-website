@@ -15,7 +15,6 @@ export const orderSlice = createSlice({
 		hasSize: false,
 		toppings: [],
 		hasToppings: false,
-		parallax: undefined
 	},
 	reducers: {
 		updateName: (state, action) => {
@@ -45,9 +44,6 @@ export const orderSlice = createSlice({
 		updateHasToppings: (state, action) => {
 			state.hasToppings = action.payload;
 		},
-		updateParallax: (state, action) => {
-			state.parallax = action.payload;
-		},
 	},
 });
 
@@ -61,7 +57,6 @@ export const {
 	updateHasSize,
 	updateToppings,
 	updateHasToppings,
-	updateParallax,
 } = orderSlice.actions;
 
 export const selectName = (state: RootState) => state.order.name;
@@ -75,7 +70,5 @@ export const selectSize = (state: RootState) => state.order.size;
 export const selectHasSize = (state: RootState) => state.order.hasSize;
 export const selectToppings = (state: RootState) => state.order.toppings;
 export const selectHasToppings = (state: RootState) => state.order.hasToppings;
-
-export const selectParallax = (state: RootState) => state.order.parallax;
 
 export default orderSlice.reducer;
