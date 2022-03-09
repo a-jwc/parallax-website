@@ -1,10 +1,10 @@
 import { IParallax } from "@react-spring/parallax";
 import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useAppSelector, useAppDispatch } from "../app/hooks";
+
 import {
 	updateName,
 	updatePhoneNumber,
-	updateOrder,
 	selectName,
 	selectPhoneNumber,
 	selectHasName,
@@ -26,11 +26,11 @@ export const PersonalForm = ({ parallax }: Parallax) => {
 		hasName: false,
 	});
 
-	const name = useSelector(selectName);
-	const phoneNumber = useSelector(selectPhoneNumber);
-	const hasName = useSelector(selectHasName);
-	const hasPhoneNumber = useSelector(selectHasPhoneNumber);
-	const dispatch = useDispatch();
+	const name = useAppSelector(selectName);
+	const phoneNumber = useAppSelector(selectPhoneNumber);
+	const hasName = useAppSelector(selectHasName);
+	const hasPhoneNumber = useAppSelector(selectHasPhoneNumber);
+	const dispatch = useAppDispatch();
 
 	const handleChange = (e: any) => {
 		const value = e.target.value;

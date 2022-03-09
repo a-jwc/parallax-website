@@ -1,4 +1,7 @@
+import { IParallax } from "@react-spring/parallax";
 import { createSlice } from "@reduxjs/toolkit";
+import { useRef } from "react";
+import type { RootState } from "../../app/store";
 
 export const orderSlice = createSlice({
 	name: "order",
@@ -12,6 +15,7 @@ export const orderSlice = createSlice({
 		hasSize: false,
 		toppings: [],
 		hasToppings: false,
+		parallax: undefined
 	},
 	reducers: {
 		updateName: (state, action) => {
@@ -41,6 +45,9 @@ export const orderSlice = createSlice({
 		updateHasToppings: (state, action) => {
 			state.hasToppings = action.payload;
 		},
+		updateParallax: (state, action) => {
+			state.parallax = action.payload;
+		},
 	},
 });
 
@@ -54,17 +61,21 @@ export const {
 	updateHasSize,
 	updateToppings,
 	updateHasToppings,
+	updateParallax,
 } = orderSlice.actions;
 
-export const selectName = (state) => state.order.name;
-export const selectPhoneNumber = (state) => state.order.phoneNumber;
-export const selectHasName = (state) => state.order.hasName;
-export const selectHasPhoneNumber = (state) => state.order.hasPhoneNumber;
+export const selectName = (state: RootState) => state.order.name;
+export const selectPhoneNumber = (state: RootState) => state.order.phoneNumber;
+export const selectHasName = (state: RootState) => state.order.hasName;
+export const selectHasPhoneNumber = (state: RootState) =>
+	state.order.hasPhoneNumber;
 
-export const selectOrder = (state) => state.order.order;
-export const selectSize = (state) => state.order.size;
-export const selectHasSize = (state) => state.order.hasSize;
-export const selectToppings = (state) => state.order.toppings;
-export const selectHasToppings = (state) => state.order.hasToppings;
+export const selectOrder = (state: RootState) => state.order.order;
+export const selectSize = (state: RootState) => state.order.size;
+export const selectHasSize = (state: RootState) => state.order.hasSize;
+export const selectToppings = (state: RootState) => state.order.toppings;
+export const selectHasToppings = (state: RootState) => state.order.hasToppings;
+
+export const selectParallax = (state: RootState) => state.order.parallax;
 
 export default orderSlice.reducer;
