@@ -1,5 +1,6 @@
+import { IParallax } from "@react-spring/parallax";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../app/hooks";
 import {
 	updateSize,
 	updateHasSize,
@@ -13,13 +14,11 @@ interface Sizes {
 	description: string;
 }
 
-const toppings = [
-	"Pepperoni",
-	"Anchovies",
-	"Mushrooms",
-	"Spinach",
-	"Olives",
-];
+interface Parallax {
+	parallax: React.MutableRefObject<IParallax>;
+}
+
+const toppings = ["Pepperoni", "Anchovies", "Mushrooms", "Spinach", "Olives"];
 
 const sizes: Sizes[] = [
 	{ size: "Small", description: 'Small 8"' },
@@ -28,8 +27,8 @@ const sizes: Sizes[] = [
 	{ size: "WOW", description: "Wow that's unbelievable 24\"" },
 ];
 
-export const OrderForm = () => {
-	const dispatch = useDispatch();
+export const OrderForm = ({ parallax }: Parallax) => {
+	const dispatch = useAppDispatch();
 
 	const [state, setState] = useState({
 		size: "Small",
@@ -114,18 +113,31 @@ export const OrderForm = () => {
 					</label>
 				</div>
 
-				<input
-					type="submit"
-					name="submit"
-					className="orderSubmitButton"
-					onClick={(e) => {
-						e.preventDefault();
-						dispatch(updateHasSize(true));
-						dispatch(updateSize(state.size));
-						dispatch(updateHasToppings(true));
-						dispatch(updateToppings(toppingsList));
-					}}
-				/>
+				<div className="orderButtons">
+					<input
+						type="submit"
+						name="submit"
+						className="orderSubmitButton"
+						value={"Update"}
+						onClick={(e) => {
+							e.preventDefault();
+							dispatch(updateHasSize(true));
+							dispatch(updateSize(state.size));
+							dispatch(updateHasToppings(true));
+							dispatch(updateToppings(toppingsList));
+						}}
+					/>
+					<input
+						type={"submit"}
+						name="next"
+            className="orderSubmitButton"
+						value={"Next"}
+						onClick={(e) => {
+							e.preventDefault();
+              parallax.current.scrollTo(3)
+						}}
+					/>
+				</div>
 			</form>
 		</div>
 	);
