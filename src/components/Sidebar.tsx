@@ -1,3 +1,4 @@
+import { IParallax } from "@react-spring/parallax";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -16,7 +17,11 @@ import {
 import { Logo } from "./Logo";
 import "./sidebar.scss";
 
-export const Sidebar = () => {
+interface Parallax {
+	parallax: React.MutableRefObject<IParallax>;
+}
+
+export const Sidebar = ({ parallax }: Parallax) => {
 	const name = useSelector(selectName);
 	const hasName = useSelector(selectHasName);
 
@@ -39,7 +44,7 @@ export const Sidebar = () => {
 		<div
 			style={{
 				maxWidth: "15vw",
-				width: "100%",
+				// width: "100%",
 				backgroundColor: "#363645",
 				height: "100vh",
 				color: "white",
@@ -48,10 +53,10 @@ export const Sidebar = () => {
 				gap: "1rem",
 			}}
 		>
-			<Logo />
+			<Logo parallax={parallax} />
 			<div className="sidebarSection">
 				<h1>Your Info</h1>
-        <ColoredLine />
+				<ColoredLine />
 				<h5>{hasName ? `Name:` : ""}</h5>
 				<div>{hasName ? `${name}` : ""}</div>
 				<h5>{hasPhoneNumber ? `Phone Number:` : ""}</h5>
@@ -59,7 +64,7 @@ export const Sidebar = () => {
 			</div>
 			<div className="sidebarSection">
 				<h1>Order</h1>
-        <ColoredLine />
+				<ColoredLine />
 				<h5>{hasSize ? `Size:` : ""}</h5>
 				<div>{hasSize ? `${size}` : ""}</div>
 				<h5>{hasToppings ? `Toppings:` : ""}</h5>
