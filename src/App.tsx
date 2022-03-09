@@ -11,7 +11,6 @@ function App() {
 				flexDirection: "row",
 			}}
 		>
-      <Sidebar />
 			<div style={{ height: "80vh" }}>
 				<ParallaxContainer></ParallaxContainer>
 			</div>
