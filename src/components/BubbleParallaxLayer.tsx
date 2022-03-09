@@ -10,6 +10,7 @@ interface Props {
 	marginLeft?: string;
 	marginRight?: string;
 	marginTop?: string;
+  marginBottom?: string;
 }
 
 export const BubbleParallaxLayer = ({
@@ -21,6 +22,7 @@ export const BubbleParallaxLayer = ({
 	marginLeft,
 	marginRight,
 	marginTop,
+  marginBottom
 }: Props) => {
 	return (
 		<ParallaxLayer
@@ -35,6 +37,7 @@ export const BubbleParallaxLayer = ({
 				marginLeft: `${marginLeft}`,
 				marginTop: `${marginTop}`,
 				marginRight: `${marginRight}`,
+				marginBottom: `${marginBottom}`,
 			}}
 			className="bubble"
 		>
